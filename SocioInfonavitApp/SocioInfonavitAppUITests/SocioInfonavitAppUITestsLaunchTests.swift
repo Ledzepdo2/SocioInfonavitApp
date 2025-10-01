@@ -1,6 +1,6 @@
 //
-//  MovieAppUITestsLaunchTests.swift
-//  MovieAppUITests
+//  SocioInfonavitAppUITestsLaunchTests.swift
+//  SocioInfonavitApp
 //
 //  Created by Jesus Perez on 30/09/25.
 //

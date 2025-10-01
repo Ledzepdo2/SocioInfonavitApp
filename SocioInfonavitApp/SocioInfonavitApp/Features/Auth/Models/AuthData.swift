@@ -1,6 +1,6 @@
 //
 //  AuthData.swift
-//  Auth
+//  SocioInfonavitApp
 //
 //  Created by Jesus Perez on 30/09/2025
 //
