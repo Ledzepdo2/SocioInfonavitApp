@@ -12,7 +12,7 @@ import FirebaseAuth
 struct AuthView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Hello, world!")
+            Text("Hello, world!").font(.custom(AppFont.montserratRegular.rawValue, size: 18))
             Button("Probar Login") {
                 Auth.auth().signIn(withEmail: "testuser@mail.com", password: "123456") { result, error in
                     if let error = error {
@@ -22,6 +22,7 @@ struct AuthView: View {
                     }
                 }
             }
+            LoadingInfonavitView()
         }
         .padding()
     }
