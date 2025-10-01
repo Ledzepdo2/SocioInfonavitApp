@@ -36,9 +36,22 @@
 		E51EAE402E8CE7EE003D94D0 /* SocioInfonavitAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocioInfonavitAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E5F02B562E8DC91F00CC3612 /* Exceptions for "SocioInfonavitApp" folder in "SocioInfonavitApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E51EAE282E8CE7ED003D94D0 /* SocioInfonavitApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E51EAE2B2E8CE7ED003D94D0 /* SocioInfonavitApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E5F02B562E8DC91F00CC3612 /* Exceptions for "SocioInfonavitApp" folder in "SocioInfonavitApp" target */,
+			);
 			path = SocioInfonavitApp;
 			sourceTree = "<group>";
 		};
@@ -446,6 +459,7 @@
 				DEVELOPMENT_TEAM = UX779734F5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SocioInfonavitApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -478,6 +492,7 @@
 				DEVELOPMENT_TEAM = UX779734F5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SocioInfonavitApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
