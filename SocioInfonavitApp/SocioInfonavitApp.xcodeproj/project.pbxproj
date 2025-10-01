@@ -1,0 +1,687 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E51EAE9B2E8CEF4C003D94D0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E51EAE9A2E8CEF4C003D94D0 /* Alamofire */; };
+		E51EAEA02E8CF0CE003D94D0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E51EAE9F2E8CF0CE003D94D0 /* FirebaseAuth */; };
+		E51EAEA22E8CF0CE003D94D0 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E51EAEA12E8CF0CE003D94D0 /* FirebaseAuthCombine-Community */; };
+		E51EAEA52E8CF116003D94D0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E51EAEA42E8CF116003D94D0 /* Kingfisher */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E51EAE372E8CE7EE003D94D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E51EAE212E8CE7ED003D94D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E51EAE282E8CE7ED003D94D0;
+			remoteInfo = MovieApp;
+		};
+		E51EAE412E8CE7EE003D94D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E51EAE212E8CE7ED003D94D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E51EAE282E8CE7ED003D94D0;
+			remoteInfo = MovieApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E51EAE292E8CE7ED003D94D0 /* SocioInfonavitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocioInfonavitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E51EAE362E8CE7EE003D94D0 /* SocioInfonavitAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocioInfonavitAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E51EAE402E8CE7EE003D94D0 /* SocioInfonavitAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocioInfonavitAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E51EAE2B2E8CE7ED003D94D0 /* SocioInfonavitApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SocioInfonavitApp;
+			sourceTree = "<group>";
+		};
+		E51EAE392E8CE7EE003D94D0 /* SocioInfonavitAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SocioInfonavitAppTests;
+			sourceTree = "<group>";
+		};
+		E51EAE432E8CE7EE003D94D0 /* SocioInfonavitAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SocioInfonavitAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E51EAE262E8CE7ED003D94D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E51EAEA52E8CF116003D94D0 /* Kingfisher in Frameworks */,
+				E51EAE9B2E8CEF4C003D94D0 /* Alamofire in Frameworks */,
+				E51EAEA22E8CF0CE003D94D0 /* FirebaseAuthCombine-Community in Frameworks */,
+				E51EAEA02E8CF0CE003D94D0 /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E51EAE332E8CE7EE003D94D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E51EAE3D2E8CE7EE003D94D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E51EAE202E8CE7ED003D94D0 = {
+			isa = PBXGroup;
+			children = (
+				E51EAE2B2E8CE7ED003D94D0 /* SocioInfonavitApp */,
+				E51EAE392E8CE7EE003D94D0 /* SocioInfonavitAppTests */,
+				E51EAE432E8CE7EE003D94D0 /* SocioInfonavitAppUITests */,
+				E51EAE2A2E8CE7ED003D94D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E51EAE2A2E8CE7ED003D94D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E51EAE292E8CE7ED003D94D0 /* SocioInfonavitApp.app */,
+				E51EAE362E8CE7EE003D94D0 /* SocioInfonavitAppTests.xctest */,
+				E51EAE402E8CE7EE003D94D0 /* SocioInfonavitAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E51EAE282E8CE7ED003D94D0 /* SocioInfonavitApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E51EAE4A2E8CE7EE003D94D0 /* Build configuration list for PBXNativeTarget "SocioInfonavitApp" */;
+			buildPhases = (
+				E51EAE252E8CE7ED003D94D0 /* Sources */,
+				E51EAE262E8CE7ED003D94D0 /* Frameworks */,
+				E51EAE272E8CE7ED003D94D0 /* Resources */,
+				E51EAE802E8CEA76003D94D0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E51EAE2B2E8CE7ED003D94D0 /* SocioInfonavitApp */,
+			);
+			name = SocioInfonavitApp;
+			packageProductDependencies = (
+				E51EAE9A2E8CEF4C003D94D0 /* Alamofire */,
+				E51EAE9F2E8CF0CE003D94D0 /* FirebaseAuth */,
+				E51EAEA12E8CF0CE003D94D0 /* FirebaseAuthCombine-Community */,
+				E51EAEA42E8CF116003D94D0 /* Kingfisher */,
+			);
+			productName = MovieApp;
+			productReference = E51EAE292E8CE7ED003D94D0 /* SocioInfonavitApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E51EAE352E8CE7EE003D94D0 /* SocioInfonavitAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E51EAE4D2E8CE7EE003D94D0 /* Build configuration list for PBXNativeTarget "SocioInfonavitAppTests" */;
+			buildPhases = (
+				E51EAE322E8CE7EE003D94D0 /* Sources */,
+				E51EAE332E8CE7EE003D94D0 /* Frameworks */,
+				E51EAE342E8CE7EE003D94D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E51EAE382E8CE7EE003D94D0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E51EAE392E8CE7EE003D94D0 /* SocioInfonavitAppTests */,
+			);
+			name = SocioInfonavitAppTests;
+			packageProductDependencies = (
+			);
+			productName = MovieAppTests;
+			productReference = E51EAE362E8CE7EE003D94D0 /* SocioInfonavitAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E51EAE3F2E8CE7EE003D94D0 /* SocioInfonavitAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E51EAE502E8CE7EE003D94D0 /* Build configuration list for PBXNativeTarget "SocioInfonavitAppUITests" */;
+			buildPhases = (
+				E51EAE3C2E8CE7EE003D94D0 /* Sources */,
+				E51EAE3D2E8CE7EE003D94D0 /* Frameworks */,
+				E51EAE3E2E8CE7EE003D94D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E51EAE422E8CE7EE003D94D0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E51EAE432E8CE7EE003D94D0 /* SocioInfonavitAppUITests */,
+			);
+			name = SocioInfonavitAppUITests;
+			packageProductDependencies = (
+			);
+			productName = MovieAppUITests;
+			productReference = E51EAE402E8CE7EE003D94D0 /* SocioInfonavitAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E51EAE212E8CE7ED003D94D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					E51EAE282E8CE7ED003D94D0 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					E51EAE352E8CE7EE003D94D0 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = E51EAE282E8CE7ED003D94D0;
+					};
+					E51EAE3F2E8CE7EE003D94D0 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = E51EAE282E8CE7ED003D94D0;
+					};
+				};
+			};
+			buildConfigurationList = E51EAE242E8CE7ED003D94D0 /* Build configuration list for PBXProject "SocioInfonavitApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E51EAE202E8CE7ED003D94D0;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E51EAE532E8CE879003D94D0 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				E51EAE992E8CEF4C003D94D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E51EAE9E2E8CF0CE003D94D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E51EAEA32E8CF116003D94D0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E51EAE2A2E8CE7ED003D94D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E51EAE282E8CE7ED003D94D0 /* SocioInfonavitApp */,
+				E51EAE352E8CE7EE003D94D0 /* SocioInfonavitAppTests */,
+				E51EAE3F2E8CE7EE003D94D0 /* SocioInfonavitAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E51EAE272E8CE7ED003D94D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E51EAE342E8CE7EE003D94D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E51EAE3E2E8CE7EE003D94D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E51EAE802E8CEA76003D94D0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.swiftlint.yml",
+				"$(SRCROOT)/WeatherApp",
+				"$(SRCROOT)/WeatherAppTests",
+				"$(SRCROOT)/WeatherAppUITests",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# SwiftLint Production Script (modo estricto para alinear con CI)\nset +e  # No detener el build por errores de SwiftLint\n\n# Crear directorio de logs\nmkdir -p \"${DERIVED_FILE_DIR}\"\nLOG_FILE=\"${DERIVED_FILE_DIR}/swiftlint-output.log\"\n\necho \"🔍 SwiftLint - Ejecutando con configuración personalizada\" | tee \"$LOG_FILE\"\n\n# Verifica que BUILD_DIR exista (indica que es un build válido)\nif [[ -z \"${BUILD_DIR}\" ]]; then\n    echo \"⚠️ BUILD_DIR no definido - omitiendo SwiftLint\" | tee -a \"$LOG_FILE\"\n    exit 0\nfi\n\n# Ruta del archivo de configuración\nCONFIG_PATH=\"${PROJECT_DIR}/.swiftlint.yml\"\nif [[ ! -f \"$CONFIG_PATH\" ]]; then\n    echo \"❌ No se encontró archivo de configuración: $CONFIG_PATH\" | tee -a \"$LOG_FILE\"\n    exit 0\nfi\n\n# Asegura permisos de lectura\nchmod 644 \"$CONFIG_PATH\"\necho \"✅ Configuración detectada en: $CONFIG_PATH\" | tee -a \"$LOG_FILE\"\n\n# Localiza swiftlint\nSWIFTLINT_PATH=\"$(which swiftlint 2>/dev/null)\"\nif [[ ! -x \"$SWIFTLINT_PATH\" ]]; then\n    for path in /opt/homebrew/bin/swiftlint /usr/local/bin/swiftlint; do\n        if [[ -x \"$path\" ]]; then\n            SWIFTLINT_PATH=\"$path\"\n            break\n        fi\n    done\nfi\n\nif [[ ! -x \"$SWIFTLINT_PATH\" ]]; then\n    echo \"⚠️ No se encontró SwiftLint - instala con: brew install swiftlint\" | tee -a \"$LOG_FILE\"\n    exit 0\nfi\n\necho \"🚀 Ejecutando SwiftLint desde: $SWIFTLINT_PATH\" | tee -a \"$LOG_FILE\"\n\n# Ir al directorio del proyecto para rutas relativas\ncd \"$PROJECT_DIR\"\n\n# Ejecutar SwiftLint en modo estricto\n\"$SWIFTLINT_PATH\" lint --config \"$CONFIG_PATH\" --reporter xcode --strict 2>&1 | tee -a \"$LOG_FILE\"\nSWIFTLINT_RESULT=${PIPESTATUS[0]}\n\n# Interpretar el resultado\nif [[ $SWIFTLINT_RESULT -eq 0 ]]; then\n    echo \"✅ SwiftLint: Sin violaciones\" | tee -a \"$LOG_FILE\"\nelif [[ $SWIFTLINT_RESULT -eq 2 ]]; then\n    echo \"⚠️ SwiftLint: Se encontraron advertencias/errores (ver arriba)\" | tee -a \"$LOG_FILE\"\nelse\n    echo \"❌ SwiftLint: Falló con código $SWIFTLINT_RESULT\" | tee -a \"$LOG_FILE\"\nfi\n\n# No bloquear el build aunque haya errores\necho \"🏁 SwiftLint finalizado\" | tee -a \"$LOG_FILE\"\nexit 0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E51EAE252E8CE7ED003D94D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E51EAE322E8CE7EE003D94D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E51EAE3C2E8CE7EE003D94D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E51EAE382E8CE7EE003D94D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E51EAE282E8CE7ED003D94D0 /* SocioInfonavitApp */;
+			targetProxy = E51EAE372E8CE7EE003D94D0 /* PBXContainerItemProxy */;
+		};
+		E51EAE422E8CE7EE003D94D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E51EAE282E8CE7ED003D94D0 /* SocioInfonavitApp */;
+			targetProxy = E51EAE412E8CE7EE003D94D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E51EAE482E8CE7EE003D94D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UX779734F5;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E51EAE492E8CE7EE003D94D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UX779734F5;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E51EAE4B2E8CE7EE003D94D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UX779734F5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NA.SocioInfonavitApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E51EAE4C2E8CE7EE003D94D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UX779734F5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NA.SocioInfonavitApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E51EAE4E2E8CE7EE003D94D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UX779734F5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NA.MovieAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocioInfonavitApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SocioInfonavitApp";
+			};
+			name = Debug;
+		};
+		E51EAE4F2E8CE7EE003D94D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UX779734F5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NA.MovieAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocioInfonavitApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SocioInfonavitApp";
+			};
+			name = Release;
+		};
+		E51EAE512E8CE7EE003D94D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UX779734F5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NA.MovieAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MovieApp;
+			};
+			name = Debug;
+		};
+		E51EAE522E8CE7EE003D94D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UX779734F5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NA.MovieAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MovieApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E51EAE242E8CE7ED003D94D0 /* Build configuration list for PBXProject "SocioInfonavitApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E51EAE482E8CE7EE003D94D0 /* Debug */,
+				E51EAE492E8CE7EE003D94D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E51EAE4A2E8CE7EE003D94D0 /* Build configuration list for PBXNativeTarget "SocioInfonavitApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E51EAE4B2E8CE7EE003D94D0 /* Debug */,
+				E51EAE4C2E8CE7EE003D94D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E51EAE4D2E8CE7EE003D94D0 /* Build configuration list for PBXNativeTarget "SocioInfonavitAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E51EAE4E2E8CE7EE003D94D0 /* Debug */,
+				E51EAE4F2E8CE7EE003D94D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E51EAE502E8CE7EE003D94D0 /* Build configuration list for PBXNativeTarget "SocioInfonavitAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E51EAE512E8CE7EE003D94D0 /* Debug */,
+				E51EAE522E8CE7EE003D94D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E51EAE532E8CE879003D94D0 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.61.0;
+			};
+		};
+		E51EAE992E8CEF4C003D94D0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		E51EAE9E2E8CF0CE003D94D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.3.0;
+			};
+		};
+		E51EAEA32E8CF116003D94D0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E51EAE9A2E8CEF4C003D94D0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E51EAE992E8CEF4C003D94D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		E51EAE9F2E8CF0CE003D94D0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E51EAE9E2E8CF0CE003D94D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E51EAEA12E8CF0CE003D94D0 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E51EAE9E2E8CF0CE003D94D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		E51EAEA42E8CF116003D94D0 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E51EAEA32E8CF116003D94D0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E51EAE212E8CE7ED003D94D0 /* Project object */;
+}

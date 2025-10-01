@@ -1,0 +1,88 @@
+# ==============================
+# iOS / Xcode Project .gitignore
+# ==============================
+
+## User-specific Xcode settings
+xcuserdata/
+
+## Build products
+build/
+DerivedData/
+*.o
+*.LinkFileList
+*.hmap
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+## Xcode project files
+# Se recomienda mantener .xcodeproj y .xcworkspace en repositorios compartidos,
+# pero ignoramos los temporales internos que genera Xcode.
+*.xccheckout
+*.xcscmblueprint
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+## Swift Package Manager
+.swiftpm/
+.build/
+# Opcional: ignora resolución de dependencias si no quieres fijarlas
+# Package.resolved
+
+## CocoaPods (no usar en este proyecto, pero por si acaso)
+# Pods/
+# *.xcworkspace
+
+## Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# ==============================
+# Fastlane
+# ==============================
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# ==============================
+# Firebase / Google Services
+# ==============================
+# ⚠️ IMPORTANTE: Nunca subir archivos con credenciales
+GoogleService-Info.plist
+
+# ==============================
+# Keychain / credenciales sensibles
+# ==============================
+*.keychain
+*.keychain-db
+
+# ==============================
+# Environment variables / secretos
+# ==============================
+.env
+*.secret
+Secrets/*.plist
+
+# ==============================
+# Logs & temporales
+# ==============================
+*.log
+*.swp
+*.swm
+*.tmp
+*.lock
+*.DS_Store
+
+# ==============================
+# SwiftLint
+# ==============================
+.swiftlint.cache
+.swiftlint.yml.lock
+.swiftlint.tmp
+Pods/SwiftLint/
+Mint/
