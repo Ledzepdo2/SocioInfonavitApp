@@ -50,7 +50,7 @@ final class AppCoordinator: ObservableObject {
             try Auth.auth().signOut()
             showLogin()
         } catch {
-            print("❌ Error al cerrar sesión: \(error)")
+            AppErrorManager.shared.present(error: .server(message: "Logout failed"))
         }
     }
 }
