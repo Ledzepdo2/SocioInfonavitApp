@@ -9,12 +9,14 @@ import SwiftUI
 
 struct LoadingInfonavitView: View {
     @State private var animate = false
+    var color: Color = .white // por defecto blanco
 
     var body: some View {
-        Image.app(.infonavit)
+        Image(systemName: "house.fill") // ícono nativo de SF Symbols
             .resizable()
             .scaledToFit()
-            .frame(width: 90, height: 90)
+            .frame(width: 60, height: 60)
+            .foregroundColor(color)
             .opacity(animate ? 0.3 : 1.0)
             .scaleEffect(animate ? 0.9 : 1.05)
             .animation(
@@ -26,3 +28,4 @@ struct LoadingInfonavitView: View {
             }
     }
 }
+
