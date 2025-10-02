@@ -5,43 +5,43 @@
 //  Created by Jesus Perez on 30/09/25.
 //
 
-import SwiftUI
-import FirebaseAuth
 import Combine
+import FirebaseAuth
+import SwiftUI
 
 final class AppCoordinator: ObservableObject {
-    @Published var rootView: AnyView = AnyView(EmptyView())
+  @Published var rootView: AnyView = AnyView(EmptyView())
 
-    init() {
-        start()
-    }
+  init() {
+    start()
+  }
 
-    func start() {
-        if let _ = Auth.auth().currentUser {
-            showHome()
-        } else {
-            showLauncher()
-        }
+  func start() {
+    if Auth.auth().currentUser != nil {
+      showHome()
+    } else {
+      showLauncher()
     }
+  }
 
-    private func showLauncher() {
-        rootView = AnyView(LaunchScreenView())
-    }
+  private func showLauncher() {
+    rootView = AnyView(LaunchScreenView())
+  }
 
-    private func showHome() {
-        rootView = AnyView(HomeView())
-    }
+  private func showHome() {
+    rootView = AnyView(HomeView())
+  }
 
-    func navigateToHome() {
-        showHome()
-    }
+  func navigateToHome() {
+    showHome()
+  }
 
-    func logout() {
-        do {
-            try Auth.auth().signOut()
-            showLauncher()
-        } catch {
-            AppErrorManager.shared.present(error: .server(message: "Logout failed"))
-        }
+  func logout() {
+    do {
+      try Auth.auth().signOut()
+      showLauncher()
+    } catch {
+      AppErrorManager.shared.present(error: .server(message: "Logout failed"))
     }
+  }
 }
