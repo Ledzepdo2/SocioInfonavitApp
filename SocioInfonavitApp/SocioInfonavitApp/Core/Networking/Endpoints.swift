@@ -1,12 +1,7 @@
-//
-//  Endpoints.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import Alamofire
 import Foundation
+
+// MARK: - Endpoints
 
 enum Endpoints: URLRequestConvertible {
   static let baseURL = "https://api.escuelajs.co/api/v1"

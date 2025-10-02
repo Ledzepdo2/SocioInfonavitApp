@@ -1,10 +1,3 @@
-//
-//  HomeModel.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 // MARK: - Product
 struct Product: Decodable, Identifiable {
   let id: Int

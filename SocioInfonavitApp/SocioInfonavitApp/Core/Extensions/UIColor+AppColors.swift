@@ -1,11 +1,6 @@
-//
-//  UIColor+AppColors.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
+
+// MARK: - AppColor
 
 enum AppColor: String {
   case redPrimary = "RedPrimary"
@@ -16,11 +11,15 @@ enum AppColor: String {
   case shimmerEnd = "ShimmerEnd"
 }
 
+// MARK: - UIColor+App
+
 extension UIColor {
   static func app(_ color: AppColor) -> UIColor {
     UIColor(named: color.rawValue) ?? .clear
   }
 }
+
+// MARK: - Color+App
 
 extension Color {
   static func app(_ color: AppColor) -> Color {

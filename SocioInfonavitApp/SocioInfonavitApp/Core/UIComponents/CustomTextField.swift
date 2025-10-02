@@ -1,19 +1,18 @@
-//
-//  CustomTextField.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import Combine
 import SwiftUI
 
+// MARK: - CustomTextField
+
 struct CustomTextField: View {
+  // MARK: - Properties
+
   @Binding var text: String
   let placeholder: String
 
   @State private var isEditing = false
   @State private var isValid = true
+
+  // MARK: - Body
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
@@ -31,6 +30,8 @@ struct CustomTextField: View {
     }
     .padding(.vertical, 8)
   }
+
+  // MARK: - Validation
 
   private var lineColor: Color {
     if text.isEmpty {

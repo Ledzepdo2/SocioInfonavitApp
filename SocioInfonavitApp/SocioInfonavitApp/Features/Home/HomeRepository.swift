@@ -1,13 +1,10 @@
-//
-//  HomeRepository.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import Foundation
 
+// MARK: - HomeRepository
+
 final class HomeRepository {
+  // MARK: - Requests
+
   func fetchProducts() async throws -> [Product] {
     try await APIClient.shared.request(Endpoints.products)
   }

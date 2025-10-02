@@ -1,17 +1,16 @@
-//
-//  SideMenuContainer.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
 
+// MARK: - SideMenuContainer
+
 struct SideMenuContainer<Content: View, Menu: View>: View {
+  // MARK: - Properties
+
   @Binding var isOpen: Bool
   let menuWidth: CGFloat
   let content: () -> Content
   let menu: () -> Menu
+
+  // MARK: - Body
 
   var body: some View {
     ZStack(alignment: .leading) {
