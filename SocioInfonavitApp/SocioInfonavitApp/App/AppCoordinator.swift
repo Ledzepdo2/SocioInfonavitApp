@@ -5,49 +5,53 @@
 //  Created by Jesus Perez on 30/09/25.
 //
 
-import SwiftUI
-import FirebaseAuth
 import Combine
+import FirebaseAuth
+import SwiftUI
 
 final class AppCoordinator: ObservableObject {
     @Published var rootView: AnyView = AnyView(EmptyView())
-
+    @StateObject private var homeViewModel = HomeViewModel()
+    
     init() {
         start()
     }
-
+    
     func start() {
-        if let _ = Auth.auth().currentUser {
+        if Auth.auth().currentUser != nil {
             showHome()
         } else {
-            showLogin()
+            showLauncher()
         }
     }
-
-    private func showLogin() {
-       //let loginView = AuthFactory.makeLoginView(coordinator: self)
-       //rootView = AnyView(loginView)
-        let loginView = LaunchScreenView()
-        rootView = AnyView(loginView)
+    
+    private func showLauncher() {
+        rootView = AnyView(LaunchScreenView())
     }
-
+    
     private func showHome() {
-       // let homeView = HomeFactory.makeHomeView(coordinator: self)
-       // rootView = AnyView(homeView)
-        let homeView = LaunchScreenView()
-        rootView = AnyView(homeView)
+        let view = HomeView(viewModel: homeViewModel) 
+            .environmentObject(self)
+        rootView = AnyView(view)
     }
 
+    
     func navigateToHome() {
         showHome()
     }
-
+    
     func logout() {
         do {
             try Auth.auth().signOut()
-            showLogin()
+            showLauncher()
         } catch {
             AppErrorManager.shared.present(error: .server(message: "Logout failed"))
         }
     }
+    
+    func navigateToMyBenevits() {
+        homeViewModel.loadMockBenevits()
+        showHome()
+    }
+    
 }
