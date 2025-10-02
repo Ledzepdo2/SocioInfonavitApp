@@ -11,7 +11,6 @@ enum AppFont: String {
     case montserratRegular = "Montserrat-Regular"
     case montserratSemiBold = "Montserrat-SemiBold"
     case montserratBold = "Montserrat-Bold"
-    // Agrega más pesos si los necesitas
 }
 
 extension Font {
