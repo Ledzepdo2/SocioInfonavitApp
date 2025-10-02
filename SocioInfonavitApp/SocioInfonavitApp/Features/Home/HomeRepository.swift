@@ -8,15 +8,15 @@
 import Foundation
 
 final class HomeRepository {
-    func fetchProducts() async throws -> [Product] {
-        try await APIClient.shared.request(Endpoints.products)
-    }
+  func fetchProducts() async throws -> [Product] {
+    try await APIClient.shared.request(Endpoints.products)
+  }
 
-    func fetchProduct(id: Int) async throws -> Product {
-        try await APIClient.shared.request(Endpoints.product(id: id))
-    }
+  func fetchProduct(id: Int) async throws -> Product {
+    try await APIClient.shared.request(Endpoints.product(id: id))
+  }
 
-    func fetchCategories() async throws -> [Category] {
-        try await APIClient.shared.request(Endpoints.categories)
-    }
+  func fetchCategories() async throws -> [Category] {
+    try await APIClient.shared.request(Endpoints.categories)
+  }
 }

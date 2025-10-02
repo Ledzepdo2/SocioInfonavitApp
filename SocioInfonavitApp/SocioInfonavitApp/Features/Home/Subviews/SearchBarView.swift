@@ -8,30 +8,30 @@
 import SwiftUI
 
 struct SearchBarView: View {
-    @Binding var query: String
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.app(.graySecondary))
+  @Binding var query: String
 
-            TextField("Buscar producto...", text: $query)
-                .textInputAutocapitalization(.none)
-                .disableAutocorrection(true)
-                .foregroundColor(.primary)
+  var body: some View {
+    HStack {
+      Image(systemName: "magnifyingglass")
+        .foregroundColor(.app(.graySecondary))
 
-            if !query.isEmpty {
-                Button(action: {
-                    query = ""
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.app(.graySecondary))
-                }
-            }
+      TextField("Buscar producto...", text: $query)
+        .textInputAutocapitalization(.none)
+        .disableAutocorrection(true)
+        .foregroundColor(.primary)
+
+      if !query.isEmpty {
+        Button(action: {
+          query = ""
+        }) {
+          Image(systemName: "xmark.circle.fill")
+            .foregroundColor(.app(.graySecondary))
         }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 10)
-        .background(Color.app(.backgroundSecondary))
-        .cornerRadius(12)
+      }
     }
+    .padding(.horizontal, 12)
+    .padding(.vertical, 10)
+    .background(Color.app(.backgroundSecondary))
+    .cornerRadius(12)
+  }
 }
