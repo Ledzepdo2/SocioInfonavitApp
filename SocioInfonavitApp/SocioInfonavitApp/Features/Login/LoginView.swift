@@ -1,16 +1,23 @@
-//
-//  LoginView.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
 
+// MARK: - LoginView
+
 struct LoginView: View {
+  // MARK: - Properties
+
   @StateObject private var viewModel = LoginViewModel()
   @EnvironmentObject var coordinator: AppCoordinator
   @ObservedObject private var errorManager = AppErrorManager.shared
+
+  private var subtitleKey: LocalizedStringKey {
+    viewModel.isRegistering ? "login.subtitle.register" : "login.subtitle.welcomeBack"
+  }
+
+  private var actionButtonTitleKey: LocalizedStringKey {
+    viewModel.isRegistering ? "login.button.register" : "login.button.signIn"
+  }
+
+  // MARK: - Body
 
   var body: some View {
     ZStack {
@@ -40,29 +47,29 @@ struct LoginView: View {
       VStack(spacing: 24) {
         Spacer()
 
-        Picker("Mode", selection: $viewModel.isRegistering) {
-          Text("Iniciar sesión")
+        Picker("login.picker.mode", selection: $viewModel.isRegistering) {
+          Text("login.mode.signIn")
             .tag(false)
-          Text("Registrarme")
+          Text("login.mode.register")
             .tag(true)
         }
         .pickerStyle(SegmentedPickerStyle())
         .tint(Color.app(.redPrimary))
         .padding(.horizontal)
 
-        Text(viewModel.isRegistering ? "Crea tu cuenta" : "Bienvenido de nuevo")
+        Text(subtitleKey)
           .font(.app(.montserratSemiBold, size: 26))
           .foregroundColor(.app(.redPrimary))
 
         VStack(spacing: 16) {
           CustomTextField(
             text: $viewModel.email,
-            placeholder: "Usuario o Email"
+            placeholder: String(localized: "login.placeholder.userOrEmail")
           )
 
           PasswordCustomTextField(
             text: $viewModel.password,
-            placeholder: "Contraseña"
+            placeholder: String(localized: "login.placeholder.password")
           )
         }
 
@@ -77,7 +84,7 @@ struct LoginView: View {
             }
           }
         }) {
-          Text(viewModel.isRegistering ? "Registrar" : "Iniciar sesión")
+          Text(actionButtonTitleKey)
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
             .padding()

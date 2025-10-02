@@ -1,13 +1,9 @@
-//
-//  LoginViewModel.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
 
 import Combine
 import FirebaseAuth
 import Foundation
+
+// MARK: - LoginViewModel
 
 @MainActor
 final class LoginViewModel: ObservableObject {
@@ -20,16 +16,22 @@ final class LoginViewModel: ObservableObject {
     !email.isEmpty && !password.isEmpty
   }
 
+  // MARK: - Public API
+
   func login(completion: @escaping (Bool) -> Void) {
     guard isFormValid else {
       AppErrorManager.shared.present(
-        error: .validation(message: "Por favor llena todos los campos"))
+        error: .validation(message: String(localized: "login.error.fillAllFields"))
+      )
       return
     }
 
     guard validateUserOrEmail(email) else {
       AppErrorManager.shared.present(
-        error: .validation(message: "Debes ingresar un número de usuario válido o un email"))
+        error: .validation(
+          message: String(localized: "login.error.invalidUserOrEmail")
+        )
+      )
       return
     }
 
@@ -37,7 +39,7 @@ final class LoginViewModel: ObservableObject {
       AppErrorManager.shared.present(
         error: .validation(
           message:
-            "La contraseña debe tener 8+ caracteres, mayúscula, minúscula, número y caracter especial"
+            String(localized: "login.error.invalidPasswordRequirements")
         ))
       return
     }
@@ -62,6 +64,8 @@ final class LoginViewModel: ObservableObject {
     }
   }
 
+  // MARK: - Private Helpers
+
   private func validateUserOrEmail(_ input: String) -> Bool {
     let userRegex = "^[0-9]{8,11}$"
     let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
@@ -77,10 +81,13 @@ final class LoginViewModel: ObservableObject {
     return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: input)
   }
 
+  // MARK: - Registration
+
   func register(completion: @escaping (Bool) -> Void) {
     guard isFormValid else {
       AppErrorManager.shared.present(
-        error: .validation(message: "Por favor llena todos los campos"))
+        error: .validation(message: String(localized: "login.error.fillAllFields"))
+      )
       return
     }
 
@@ -88,7 +95,7 @@ final class LoginViewModel: ObservableObject {
       AppErrorManager.shared.present(
         error: .validation(
           message:
-            "La contraseña debe tener 8+ caracteres, mayúscula, minúscula, número y caracter especial"
+            String(localized: "login.error.invalidPasswordRequirements")
         ))
       return
     }

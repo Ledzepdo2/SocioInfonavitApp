@@ -1,13 +1,10 @@
-//
-//  WaveShape.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
 
+// MARK: - WaveShape
+
 struct WaveShape: Shape {
+  // MARK: - Path
+
   func path(in rect: CGRect) -> Path {
     var path = Path()
 

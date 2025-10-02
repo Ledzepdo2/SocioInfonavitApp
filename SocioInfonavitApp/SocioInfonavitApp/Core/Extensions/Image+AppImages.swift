@@ -1,11 +1,6 @@
-//
-//  Image+AppImages.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
+
+// MARK: - AppImage
 
 enum AppImage: String {
   case infonavit = "img-infonavit"
@@ -13,11 +8,15 @@ enum AppImage: String {
   case socioInfonavit = "img-socio-infonavit"
 }
 
+// MARK: - Image+App
+
 extension Image {
   static func app(_ image: AppImage) -> Image {
     return Image(image.rawValue)
   }
 }
+
+// MARK: - UIImage+App
 
 extension UIImage {
   static func app(_ image: AppImage) -> UIImage {
