@@ -1,0 +1,43 @@
+# .swiftlint.yml
+# Configuración ligera para SocioInfonavitApp
+# Marca solo las reglas críticas como errores, el resto son advertencias.
+
+# Reglas críticas (imperdonables → error)
+only_rules:
+  - force_cast                 # Evita force casting (fatal en runtime)
+  - force_unwrapping           # Evita force unwraps (!)
+  - implicitly_unwrapped_optional
+  - file_length                # Archivos demasiado largos → difícil mantenimiento
+  - type_body_length           # Clases/structs demasiado largos
+  - function_body_length       # Funciones demasiado largas
+
+# Configuración global
+reporter: "xcode"               # Salida en formato Xcode
+included:                       # Carpetas a revisar
+  - SocioInfonavitApp
+excluded:                       # Carpetas a ignorar
+  - Pods
+  - Carthage
+  - DerivedData
+  - SocioInfonavitAppTests
+  - SocioInfonavitAppUITests
+
+# Personalización de severidad (warnings que no rompen el build)
+warning_threshold: 20           # Hasta 20 warnings antes de alertar fuerte
+
+# Límites de longitud (aún así solo advertencia si no son críticos)
+line_length:
+  warning: 150
+  error: 200
+
+function_body_length:
+  warning: 50
+  error: 80
+
+type_body_length:
+  warning: 300
+  error: 500
+
+file_length:
+  warning: 500
+  error: 800
