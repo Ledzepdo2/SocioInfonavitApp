@@ -12,22 +12,22 @@ import Combine
 struct SocioInfonavitApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var coordinator = AppCoordinator()
-    @StateObject private var errorManager = AppErrorManager.shared 
 
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 coordinator.rootView
                     .overlay {
-                        if let error = errorManager.currentError {
+                        if let error = AppErrorManager.shared.currentError {
                             ErrorModalView(error: error) {
-                                errorManager.dismiss()
+                                AppErrorManager.shared.dismiss()
                             }
                             .transition(.scale)
                             .zIndex(1)
                         }
                     }
             }
+            .environmentObject(coordinator)
         }
     }
 }

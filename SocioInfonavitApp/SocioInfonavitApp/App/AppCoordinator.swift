@@ -20,22 +20,16 @@ final class AppCoordinator: ObservableObject {
         if let _ = Auth.auth().currentUser {
             showHome()
         } else {
-            showLogin()
+            showLauncher()
         }
     }
 
-    private func showLogin() {
-       //let loginView = AuthFactory.makeLoginView(coordinator: self)
-       //rootView = AnyView(loginView)
-        let loginView = LaunchScreenView()
-        rootView = AnyView(loginView)
+    private func showLauncher() {
+        rootView = AnyView(LaunchScreenView())
     }
 
     private func showHome() {
-       // let homeView = HomeFactory.makeHomeView(coordinator: self)
-       // rootView = AnyView(homeView)
-        let homeView = LaunchScreenView()
-        rootView = AnyView(homeView)
+        rootView = AnyView(HomeView())
     }
 
     func navigateToHome() {
@@ -45,7 +39,7 @@ final class AppCoordinator: ObservableObject {
     func logout() {
         do {
             try Auth.auth().signOut()
-            showLogin()
+            showLauncher()
         } catch {
             AppErrorManager.shared.present(error: .server(message: "Logout failed"))
         }

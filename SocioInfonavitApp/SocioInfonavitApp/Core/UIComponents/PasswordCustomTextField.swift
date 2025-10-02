@@ -22,7 +22,6 @@ struct PasswordCustomTextField: View {
                     SecureField(placeholder, text: $text)
                         .textContentType(.password)
                         .onChange(of: text) { _ in
-                            // Solo marcar estado, no mostrar modal
                             isValid = validatePassword(text)
                         }
                 } else {
@@ -52,7 +51,7 @@ struct PasswordCustomTextField: View {
         if text.isEmpty {
             return Color.app(.graySecondary)
         } else {
-            return Color.app(.redPrimary) // válido → rojo
+            return Color.app(.redPrimary)
         }
     }
     

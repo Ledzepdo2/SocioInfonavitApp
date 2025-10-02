@@ -20,54 +20,52 @@ struct LoginView: View {
                         .fill(Color.app(.redPrimary))
                         .frame(height: 250)
                         .ignoresSafeArea(edges: .top)
-                    
+
                     VStack(spacing: 12) {
                         Image.app(.people)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 160)
-                        
-                        Image.app(.socioInfonavit) 
+
+                        Image.app(.socioInfonavit)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 140)
                     }
                 }
-                
+
                 Spacer()
             }
-            
+
             VStack(spacing: 24) {
                 Spacer()
-                
+
                 Picker("Mode", selection: $viewModel.isRegistering) {
                     Text("Iniciar sesión")
                         .tag(false)
-                        .foregroundColor(viewModel.isRegistering ? .app(.graySecondary) : .app(.redPrimary))
                     Text("Registrarme")
                         .tag(true)
-                        .foregroundColor(viewModel.isRegistering ? .app(.redPrimary) : .app(.graySecondary))
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .tint(Color.app(.redPrimary))
                 .padding(.horizontal)
-                
+
                 Text(viewModel.isRegistering ? "Crea tu cuenta" : "Bienvenido de nuevo")
                     .font(.app(.montserratSemiBold, size: 26))
                     .foregroundColor(.app(.redPrimary))
-                
+
                 VStack(spacing: 16) {
                     CustomTextField(
                         text: $viewModel.email,
                         placeholder: "Usuario o Email"
                     )
-                    
+
                     PasswordCustomTextField(
                         text: $viewModel.password,
                         placeholder: "Contraseña"
                     )
                 }
-                
+
                 Button(action: {
                     if viewModel.isRegistering {
                         viewModel.register { success in
@@ -87,19 +85,21 @@ struct LoginView: View {
                         .cornerRadius(12)
                 }
                 .disabled(!viewModel.isFormValid || viewModel.isLoading)
-                
                 if viewModel.isLoading {
                     LoadingInfonavitView(color: .app(.redPrimary))
                         .frame(width: 60, height: 60)
                         .padding(.top)
                 }
-                
                 Spacer()
             }
             .padding()
-            .background(Color.app(.backgroundPrimary))
+            .background(
+                Color.app(.backgroundPrimary)
+                    .clipShape(RoundedRectangle(cornerRadius: 0))
+                    .offset(y: 200) 
+            )
             .ignoresSafeArea(.keyboard)
-            
+
             if let error = errorManager.currentError {
                 ErrorModalView(error: error) {
                     errorManager.dismiss()

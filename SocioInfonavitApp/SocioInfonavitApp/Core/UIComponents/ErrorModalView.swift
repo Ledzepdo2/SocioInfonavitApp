@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-//
-//  ErrorModalView.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
-import SwiftUI
-
 struct ErrorModalView: View {
     let error: AppError
     let onDismiss: () -> Void
