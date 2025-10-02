@@ -10,8 +10,13 @@ import SwiftUI
 
 @main
 struct SocioInfonavitApp: App {
+
+  // MARK: - Properties
+
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
   @StateObject private var coordinator = AppCoordinator()
+
+  // MARK: - Scene
 
   var body: some Scene {
     WindowGroup {

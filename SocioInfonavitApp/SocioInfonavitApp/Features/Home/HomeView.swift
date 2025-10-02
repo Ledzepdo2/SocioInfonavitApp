@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
+
+    // MARK: - Properties
+
     @ObservedObject var viewModel: HomeViewModel
     @State private var isMenuOpen = false
     @EnvironmentObject var coordinator: AppCoordinator
-    
+
+    // MARK: - View
+
     var body: some View {
         SideMenuContainer(
             isOpen: $isMenuOpen,
