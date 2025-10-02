@@ -10,62 +10,78 @@ import FirebaseAuth
 import SwiftUI
 
 enum AppError: LocalizedError, Identifiable {
-  var id: String { localizedDescription }
+    // MARK: - Cases
 
-  case validation(message: String)
-  case network(message: String)
-  case server(message: String)
-  case firebase(message: String)
-  case unknown
+    case validation(message: String)
+    case network(message: String)
+    case server(message: String)
+    case firebase(message: String)
+    case unknown
 
-  var errorDescription: String? {
-    switch self {
-    case .validation(let message): return message
-    case .network(let message): return message
-    case .server(let message): return message
-    case .firebase(let message): return message
-    case .unknown: return "Something went wrong"
+    // MARK: - Identifiable
+
+    var id: String { localizedDescription }
+
+    // MARK: - LocalizedError
+
+    var errorDescription: String? {
+        switch self {
+        case let .validation(message), let .network(message), let .server(message), let .firebase(message):
+            return message
+        case .unknown:
+            return "Something went wrong"
+        }
     }
-  }
 
-  init(firebaseError error: Error) {
-    let nsError = error as NSError
-    if let errCode = AuthErrorCode(rawValue: nsError.code) {
-      switch errCode.code {
-      case .invalidEmail:
-        self = .firebase(message: "Correo inválido")
-      case .wrongPassword:
-        self = .firebase(message: "Credenciales inválidas")
-      case .userNotFound:
-        self = .firebase(message: "El usuario no existe")
-      case .emailAlreadyInUse:
-        self = .firebase(message: "El correo ya está registrado")
-      case .weakPassword:
-        self = .firebase(message: "La contraseña es muy débil")
-      case .tooManyRequests:
-        self = .firebase(message: "Demasiados intentos. Intenta más tarde")
-      default:
-        self = .firebase(message: "Ocurrió un error inesperado")
-      }
-    } else {
-      self = .unknown
+    // MARK: - Initialization
+
+    init(firebaseError error: Error) {
+        let nsError = error as NSError
+
+        if let errCode = AuthErrorCode(rawValue: nsError.code) {
+            switch errCode.code {
+            case .invalidEmail:
+                self = .firebase(message: "Correo inválido")
+            case .wrongPassword:
+                self = .firebase(message: "Credenciales inválidas")
+            case .userNotFound:
+                self = .firebase(message: "El usuario no existe")
+            case .emailAlreadyInUse:
+                self = .firebase(message: "El correo ya está registrado")
+            case .weakPassword:
+                self = .firebase(message: "La contraseña es muy débil")
+            case .tooManyRequests:
+                self = .firebase(message: "Demasiados intentos. Intenta más tarde")
+            default:
+                self = .firebase(message: "Ocurrió un error inesperado")
+            }
+        } else {
+            self = .unknown
+        }
     }
-  }
 }
 
 @MainActor
 final class AppErrorManager: ObservableObject {
-  static let shared = AppErrorManager()
+    // MARK: - Singleton
 
-  @Published var currentError: AppError?
+    static let shared = AppErrorManager()
 
-  private init() {}
+    // MARK: - Published Properties
 
-  func present(error: AppError) {
-    currentError = error
-  }
+    @Published var currentError: AppError?
 
-  func dismiss() {
-    currentError = nil
-  }
+    // MARK: - Initialization
+
+    private init() {}
+
+    // MARK: - Public Methods
+
+    func present(error: AppError) {
+        currentError = error
+    }
+
+    func dismiss() {
+        currentError = nil
+    }
 }

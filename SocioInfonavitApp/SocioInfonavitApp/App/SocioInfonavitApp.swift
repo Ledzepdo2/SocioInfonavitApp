@@ -10,24 +10,31 @@ import SwiftUI
 
 @main
 struct SocioInfonavitApp: App {
-  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-  @StateObject private var coordinator = AppCoordinator()
+    // MARK: - AppDelegate
 
-  var body: some Scene {
-    WindowGroup {
-      NavigationStack {
-        coordinator.rootView
-          .overlay {
-            if let error = AppErrorManager.shared.currentError {
-              ErrorModalView(error: error) {
-                AppErrorManager.shared.dismiss()
-              }
-              .transition(.scale)
-              .zIndex(1)
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
+    // MARK: - Properties
+
+    @StateObject private var coordinator = AppCoordinator()
+
+    // MARK: - Scene
+
+    var body: some Scene {
+        WindowGroup {
+            NavigationStack {
+                coordinator.rootView
+                    .overlay {
+                        if let error = AppErrorManager.shared.currentError {
+                            ErrorModalView(error: error) {
+                                AppErrorManager.shared.dismiss()
+                            }
+                            .transition(.scale)
+                            .zIndex(1)
+                        }
+                    }
             }
-          }
-      }
-      .environmentObject(coordinator)
+            .environmentObject(coordinator)
+        }
     }
-  }
 }

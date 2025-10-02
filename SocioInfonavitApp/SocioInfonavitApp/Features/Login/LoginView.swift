@@ -8,104 +8,135 @@
 import SwiftUI
 
 struct LoginView: View {
-  @StateObject private var viewModel = LoginViewModel()
-  @EnvironmentObject var coordinator: AppCoordinator
-  @ObservedObject private var errorManager = AppErrorManager.shared
+    // MARK: - Properties
 
-  var body: some View {
-    ZStack {
-      VStack(spacing: 0) {
+    @StateObject private var viewModel = LoginViewModel()
+    @EnvironmentObject private var coordinator: AppCoordinator
+    @ObservedObject private var errorManager = AppErrorManager.shared
+
+    // MARK: - View
+
+    var body: some View {
         ZStack {
-          WaveShape()
-            .fill(Color.app(.redPrimary))
-            .frame(height: 250)
-            .ignoresSafeArea(edges: .top)
+            waveBackground
 
-          VStack(spacing: 12) {
-            Image.app(.people)
-              .resizable()
-              .scaledToFit()
-              .frame(width: 160)
+            VStack(spacing: 24) {
+                Spacer()
 
-            Image.app(.socioInfonavit)
-              .resizable()
-              .scaledToFit()
-              .frame(width: 140)
-          }
+                modePicker
+                title
+                credentialsFields
+                actionButton
+
+                if viewModel.isLoading {
+                    LoadingInfonavitView(color: .app(.redPrimary))
+                        .frame(width: 60, height: 60)
+                        .padding(.top)
+                }
+
+                Spacer()
+            }
+            .padding()
+            .background(
+                Color.app(.backgroundPrimary)
+                    .clipShape(RoundedRectangle(cornerRadius: 0))
+                    .offset(y: 200)
+            )
+            .ignoresSafeArea(.keyboard)
+
+            if let error = errorManager.currentError {
+                ErrorModalView(error: error) {
+                    errorManager.dismiss()
+                }
+                .zIndex(1)
+            }
         }
+    }
 
-        Spacer()
-      }
+    // MARK: - Private Views
 
-      VStack(spacing: 24) {
-        Spacer()
+    private var waveBackground: some View {
+        VStack(spacing: 0) {
+            ZStack {
+                WaveShape()
+                    .fill(Color.app(.redPrimary))
+                    .frame(height: 250)
+                    .ignoresSafeArea(edges: .top)
 
+                VStack(spacing: 12) {
+                    Image.app(.people)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 160)
+
+                    Image.app(.socioInfonavit)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 140)
+                }
+            }
+
+            Spacer()
+        }
+    }
+
+    private var modePicker: some View {
         Picker("Mode", selection: $viewModel.isRegistering) {
-          Text("Iniciar sesión")
-            .tag(false)
-          Text("Registrarme")
-            .tag(true)
+            Text("Iniciar sesión")
+                .tag(false)
+            Text("Registrarme")
+                .tag(true)
         }
-        .pickerStyle(SegmentedPickerStyle())
+        .pickerStyle(.segmented)
         .tint(Color.app(.redPrimary))
         .padding(.horizontal)
+    }
 
+    private var title: some View {
         Text(viewModel.isRegistering ? "Crea tu cuenta" : "Bienvenido de nuevo")
-          .font(.app(.montserratSemiBold, size: 26))
-          .foregroundColor(.app(.redPrimary))
+            .font(.app(.montserratSemiBold, size: 26))
+            .foregroundColor(.app(.redPrimary))
+    }
 
+    private var credentialsFields: some View {
         VStack(spacing: 16) {
-          CustomTextField(
-            text: $viewModel.email,
-            placeholder: "Usuario o Email"
-          )
+            CustomTextField(
+                text: $viewModel.email,
+                placeholder: "Usuario o Email"
+            )
 
-          PasswordCustomTextField(
-            text: $viewModel.password,
-            placeholder: "Contraseña"
-          )
+            PasswordCustomTextField(
+                text: $viewModel.password,
+                placeholder: "Contraseña"
+            )
         }
+    }
 
-        Button(action: {
-          if viewModel.isRegistering {
-            viewModel.register { success in
-              if success { coordinator.navigateToHome() }
-            }
-          } else {
-            viewModel.login { success in
-              if success { coordinator.navigateToHome() }
-            }
-          }
-        }) {
-          Text(viewModel.isRegistering ? "Registrar" : "Iniciar sesión")
-            .foregroundColor(.white)
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(viewModel.isFormValid ? Color.app(.redPrimary) : Color.gray.opacity(0.4))
-            .cornerRadius(12)
+    private var actionButton: some View {
+        Button(action: handleAction) {
+            Text(viewModel.isRegistering ? "Registrar" : "Iniciar sesión")
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(viewModel.isFormValid ? Color.app(.redPrimary) : Color.gray.opacity(0.4))
+                .cornerRadius(12)
         }
         .disabled(!viewModel.isFormValid || viewModel.isLoading)
-        if viewModel.isLoading {
-          LoadingInfonavitView(color: .app(.redPrimary))
-            .frame(width: 60, height: 60)
-            .padding(.top)
-        }
-        Spacer()
-      }
-      .padding()
-      .background(
-        Color.app(.backgroundPrimary)
-          .clipShape(RoundedRectangle(cornerRadius: 0))
-          .offset(y: 200)
-      )
-      .ignoresSafeArea(.keyboard)
-
-      if let error = errorManager.currentError {
-        ErrorModalView(error: error) {
-          errorManager.dismiss()
-        }
-        .zIndex(1)
-      }
     }
-  }
+
+    // MARK: - Private Methods
+
+    private func handleAction() {
+        let completion: (Bool) -> Void = { success in
+            if success {
+                coordinator.navigateToHome()
+            }
+        }
+
+        if viewModel.isRegistering {
+            viewModel.register(completion: completion)
+        } else {
+            viewModel.login(completion: completion)
+        }
+    }
 }

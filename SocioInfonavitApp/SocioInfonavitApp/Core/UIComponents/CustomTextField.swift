@@ -9,44 +9,46 @@ import Combine
 import SwiftUI
 
 struct CustomTextField: View {
-  @Binding var text: String
-  let placeholder: String
+    // MARK: - Properties
 
-  @State private var isEditing = false
-  @State private var isValid = true
+    @Binding var text: String
+    let placeholder: String
 
-  var body: some View {
-    VStack(alignment: .leading, spacing: 4) {
-      TextField(placeholder, text: $text)
-        .keyboardType(.emailAddress)
-        .autocapitalization(.none)
-        .onTapGesture { isEditing = true }
-        .onChange(of: text) { _ in
-          isValid = validateInput(text)
+    @State private var isValid = true
+
+    // MARK: - View
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            TextField(placeholder, text: $text)
+                .keyboardType(.emailAddress)
+                .textInputAutocapitalization(.none)
+                .onChange(of: text, perform: validate)
+
+            Rectangle()
+                .fill(lineColor)
+                .frame(height: 2)
+        }
+        .padding(.vertical, 8)
+    }
+
+    private var lineColor: Color {
+        guard !text.isEmpty else {
+            return Color.app(.graySecondary)
         }
 
-      Rectangle()
-        .fill(lineColor)
-        .frame(height: 2)
+        return isValid ? Color.app(.redPrimary) : Color.red
     }
-    .padding(.vertical, 8)
-  }
 
-  private var lineColor: Color {
-    if text.isEmpty {
-      return Color.app(.graySecondary)
-    } else {
-      return Color.app(.redPrimary)
+    // MARK: - Private Methods
+
+    private func validate(_ input: String) {
+        let userRegex = "^[0-9]{8,11}$"
+        let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+
+        let userPredicate = NSPredicate(format: "SELF MATCHES %@", userRegex)
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+
+        isValid = userPredicate.evaluate(with: input) || emailPredicate.evaluate(with: input)
     }
-  }
-
-  private func validateInput(_ input: String) -> Bool {
-    let userRegex = "^[0-9]{8,11}$"
-    let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
-
-    let userPred = NSPredicate(format: "SELF MATCHES %@", userRegex)
-    let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-
-    return userPred.evaluate(with: input) || emailPred.evaluate(with: input)
-  }
 }

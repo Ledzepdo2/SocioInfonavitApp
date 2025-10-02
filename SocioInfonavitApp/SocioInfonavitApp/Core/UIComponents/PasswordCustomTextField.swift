@@ -9,54 +9,70 @@ import Combine
 import SwiftUI
 
 struct PasswordCustomTextField: View {
-  @Binding var text: String
-  let placeholder: String
+    // MARK: - Properties
 
-  @State private var isSecure: Bool = true
-  @State private var isValid: Bool = true
+    @Binding var text: String
+    let placeholder: String
 
-  var body: some View {
-    VStack(alignment: .leading, spacing: 4) {
-      HStack {
-        if isSecure {
-          SecureField(placeholder, text: $text)
-            .textContentType(.password)
-            .onChange(of: text) { _ in
-              isValid = validatePassword(text)
+    @State private var isSecure = true
+    @State private var isValid = true
+
+    // MARK: - View
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                passwordField
+                toggleVisibilityButton
             }
-        } else {
-          TextField(placeholder, text: $text)
-            .textContentType(.password)
-            .onChange(of: text) { _ in
-              isValid = validatePassword(text)
+
+            Rectangle()
+                .fill(lineColor)
+                .frame(height: 2)
+        }
+        .padding(.vertical, 8)
+        .onChange(of: text, perform: validate)
+    }
+
+    // MARK: - Private Views
+
+    private var passwordField: some View {
+        Group {
+            if isSecure {
+                SecureField(placeholder, text: $text)
+                    .textContentType(.password)
+            } else {
+                TextField(placeholder, text: $text)
+                    .textContentType(.password)
             }
         }
+    }
 
-        Button(action: {
-          isSecure.toggle()
-        }) {
-          Image(systemName: isSecure ? "eye.slash.fill" : "eye.fill")
-            .foregroundColor(.app(.graySecondary))
+    private var toggleVisibilityButton: some View {
+        Button(action: toggleSecure) {
+            Image(systemName: isSecure ? "eye.slash.fill" : "eye.fill")
+                .foregroundColor(.app(.graySecondary))
         }
-      }
-
-      Rectangle()
-        .fill(lineColor)
-        .frame(height: 2)
     }
-    .padding(.vertical, 8)
-  }
 
-  private var lineColor: Color {
-    if text.isEmpty {
-      return Color.app(.graySecondary)
-    } else {
-      return Color.app(.redPrimary)
+    private var lineColor: Color {
+        guard !text.isEmpty else {
+            return Color.app(.graySecondary)
+        }
+
+        return isValid ? Color.app(.redPrimary) : Color.red
     }
-  }
 
-  private func validatePassword(_ input: String) -> Bool {
-    let regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&#])[A-Za-z\\d@$!%*?&#]{8,}$"
-    return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: input)
-  }
+    // MARK: - Private Methods
+
+    private func toggleSecure() {
+        isSecure.toggle()
+    }
+
+    private func validate(_ input: String) {
+        isValid = NSPredicate(
+            format: "SELF MATCHES %@",
+            "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&#])[A-Za-z\\d@$!%*?&#]{8,}$"
+        ).evaluate(with: input)
+    }
 }

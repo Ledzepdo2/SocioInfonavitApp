@@ -8,34 +8,50 @@
 import SwiftUI
 
 struct LaunchScreenView: View {
-  @State private var showLogin = false
+    // MARK: - Properties
 
-  var body: some View {
-    GeometryReader { geo in
-      ZStack {
-        Color.app(.redPrimary).ignoresSafeArea()
+    @State private var showLogin = false
 
+    // MARK: - View
+
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Color.app(.redPrimary)
+                    .ignoresSafeArea()
+
+                logo(in: geometry)
+                loadingIndicator(in: geometry)
+            }
+        }
+        .onAppear(perform: presentLoginAfterDelay)
+        .fullScreenCover(isPresented: $showLogin, content: LoginView.init)
+    }
+
+    // MARK: - Private Views
+
+    private func logo(in geometry: GeometryProxy) -> some View {
         Image.app(.socioInfonavit)
-          .resizable()
-          .scaledToFit()
-          .padding(.horizontal, 32)
-          .position(x: geo.size.width / 2, y: geo.size.height / 2)
+            .resizable()
+            .scaledToFit()
+            .padding(.horizontal, 32)
+            .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+    }
 
+    private func loadingIndicator(in geometry: GeometryProxy) -> some View {
         LoadingInfonavitView()
-          .frame(width: 80, height: 80)
-          .position(
-            x: geo.size.width / 2,
-            y: geo.size.height - (geo.size.height / 3)
-          )
-      }
+            .frame(width: 80, height: 80)
+            .position(
+                x: geometry.size.width / 2,
+                y: geometry.size.height - (geometry.size.height / 3)
+            )
     }
-    .onAppear {
-      DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-        showLogin = true
-      }
+
+    // MARK: - Private Methods
+
+    private func presentLoginAfterDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            showLogin = true
+        }
     }
-    .fullScreenCover(isPresented: $showLogin) {
-      LoginView()
-    }
-  }
 }

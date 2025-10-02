@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct SkeletonListView: View {
+    // MARK: - View
+
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
-                ForEach(0..<6, id: \.self) { _ in
+                ForEach(0 ..< 6, id: \.self) { _ in
                     SkeletonProductView()
                 }
             }
