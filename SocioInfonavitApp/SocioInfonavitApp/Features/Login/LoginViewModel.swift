@@ -1,9 +1,3 @@
-//
-//  LoginViewModel.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
 
 import Combine
 import FirebaseAuth

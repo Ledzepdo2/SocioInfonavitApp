@@ -10,7 +10,7 @@ struct LaunchScreenView: View {
   var body: some View {
     GeometryReader { geo in
       ZStack {
-        Color.app(.redPrimary).ignoresSafeArea()
+          Color.app(.backgroundPrimary).ignoresSafeArea()
 
         Image.app(.socioInfonavit)
           .resizable()
@@ -18,7 +18,7 @@ struct LaunchScreenView: View {
           .padding(.horizontal, 32)
           .position(x: geo.size.width / 2, y: geo.size.height / 2)
 
-        LoadingInfonavitView()
+          LoadingInfonavitView(color: .redPrimary)
           .frame(width: 80, height: 80)
           .position(
             x: geo.size.width / 2,
