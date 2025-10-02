@@ -18,10 +18,8 @@ final class AppCoordinator: ObservableObject {
 
     func start() {
         if let _ = Auth.auth().currentUser {
-            // Usuario ya logueado → ir al Home
             showHome()
         } else {
-            // No hay sesión → ir al Login
             showLogin()
         }
     }
@@ -40,7 +38,6 @@ final class AppCoordinator: ObservableObject {
         rootView = AnyView(homeView)
     }
 
-    // Navegación desde módulos
     func navigateToHome() {
         showHome()
     }
@@ -50,7 +47,7 @@ final class AppCoordinator: ObservableObject {
             try Auth.auth().signOut()
             showLogin()
         } catch {
-            print("❌ Error al cerrar sesión: \(error)")
+            AppErrorManager.shared.present(error: .server(message: "Logout failed"))
         }
     }
 }

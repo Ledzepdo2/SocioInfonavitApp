@@ -9,10 +9,10 @@ import SwiftUI
 
 struct LoadingInfonavitView: View {
     @State private var animate = false
-    var color: Color = .white // por defecto blanco
+    var color: Color = .white
 
     var body: some View {
-        Image(systemName: "house.fill") // ícono nativo de SF Symbols
+        Image(systemName: "house.fill")
             .resizable()
             .scaledToFit()
             .frame(width: 60, height: 60)
