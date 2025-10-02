@@ -10,64 +10,102 @@ import SwiftUI
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @EnvironmentObject var coordinator: AppCoordinator
+    @ObservedObject private var errorManager = AppErrorManager.shared
 
     var body: some View {
-        VStack(spacing: 24) {
-            Spacer()
-
-            Text("Inicia sesión")
-                .font(.app(.montserratSemiBold, size: 28))
-                .foregroundColor(.app(.redPrimary))
-
-            VStack(spacing: 16) {
-                TextField("Correo electrónico", text: $viewModel.email)
-                    .keyboardType(.emailAddress)
-                    .textContentType(.emailAddress)
-                    .autocapitalization(.none)
-                    .padding()
-                    .background(Color.app(.backgroundSecondary))
-                    .cornerRadius(12)
-
-                SecureField("Contraseña", text: $viewModel.password)
-                    .textContentType(.password)
-                    .padding()
-                    .background(Color.app(.backgroundSecondary))
-                    .cornerRadius(12)
-            }
-
-            if let error = viewModel.loginError {
-                Text(error)
-                    .foregroundColor(.red)
-                    .font(.app(.montserratRegular, size: 14))
-                    .multilineTextAlignment(.center)
-            }
-
-            Button(action: {
-                viewModel.login { success in
-                    if success {
-                        coordinator.navigateToHome()
+        ZStack {
+            VStack(spacing: 0) {
+                ZStack {
+                    WaveShape()
+                        .fill(Color.app(.redPrimary))
+                        .frame(height: 250)
+                        .ignoresSafeArea(edges: .top)
+                    
+                    VStack(spacing: 12) {
+                        Image.app(.people)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 160)
+                        
+                        Image.app(.socioInfonavit) 
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 140)
                     }
                 }
-            }) {
-                Text("Iniciar sesión")
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(viewModel.isFormValid ? Color.app(.redPrimary) : Color.gray.opacity(0.4))
-                    .cornerRadius(12)
+                
+                Spacer()
             }
-            .disabled(!viewModel.isFormValid || viewModel.isLoading)
-
-            if viewModel.isLoading {
-                LoadingInfonavitView()
-                    .frame(width: 50, height: 50)
-                    .padding(.top)
+            
+            VStack(spacing: 24) {
+                Spacer()
+                
+                Picker("Mode", selection: $viewModel.isRegistering) {
+                    Text("Iniciar sesión")
+                        .tag(false)
+                        .foregroundColor(viewModel.isRegistering ? .app(.graySecondary) : .app(.redPrimary))
+                    Text("Registrarme")
+                        .tag(true)
+                        .foregroundColor(viewModel.isRegistering ? .app(.redPrimary) : .app(.graySecondary))
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .tint(Color.app(.redPrimary))
+                .padding(.horizontal)
+                
+                Text(viewModel.isRegistering ? "Crea tu cuenta" : "Bienvenido de nuevo")
+                    .font(.app(.montserratSemiBold, size: 26))
+                    .foregroundColor(.app(.redPrimary))
+                
+                VStack(spacing: 16) {
+                    CustomTextField(
+                        text: $viewModel.email,
+                        placeholder: "Usuario o Email"
+                    )
+                    
+                    PasswordCustomTextField(
+                        text: $viewModel.password,
+                        placeholder: "Contraseña"
+                    )
+                }
+                
+                Button(action: {
+                    if viewModel.isRegistering {
+                        viewModel.register { success in
+                            if success { coordinator.navigateToHome() }
+                        }
+                    } else {
+                        viewModel.login { success in
+                            if success { coordinator.navigateToHome() }
+                        }
+                    }
+                }) {
+                    Text(viewModel.isRegistering ? "Registrar" : "Iniciar sesión")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(viewModel.isFormValid ? Color.app(.redPrimary) : Color.gray.opacity(0.4))
+                        .cornerRadius(12)
+                }
+                .disabled(!viewModel.isFormValid || viewModel.isLoading)
+                
+                if viewModel.isLoading {
+                    LoadingInfonavitView(color: .app(.redPrimary))
+                        .frame(width: 60, height: 60)
+                        .padding(.top)
+                }
+                
+                Spacer()
             }
-
-            Spacer()
+            .padding()
+            .background(Color.app(.backgroundPrimary))
+            .ignoresSafeArea(.keyboard)
+            
+            if let error = errorManager.currentError {
+                ErrorModalView(error: error) {
+                    errorManager.dismiss()
+                }
+                .zIndex(1)
+            }
         }
-        .padding()
-        .background(Color.app(.backgroundPrimary))
-        .ignoresSafeArea(.keyboard)
     }
 }

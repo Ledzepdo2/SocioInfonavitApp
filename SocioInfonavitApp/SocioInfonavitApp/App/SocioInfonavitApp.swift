@@ -12,7 +12,7 @@ import Combine
 struct SocioInfonavitApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var coordinator = AppCoordinator()
-    @StateObject private var errorManager = AppErrorManager.shared // ✅ Nuevo
+    @StateObject private var errorManager = AppErrorManager.shared 
 
     var body: some Scene {
         WindowGroup {

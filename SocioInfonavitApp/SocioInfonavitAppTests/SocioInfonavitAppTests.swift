@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import MovieApp
+@testable import SocioInfonavitApp
 
 final class SocioInfonavitAppTests: XCTestCase {
 
