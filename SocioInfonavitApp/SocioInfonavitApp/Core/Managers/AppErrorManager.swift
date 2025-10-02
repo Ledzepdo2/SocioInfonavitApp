@@ -1,13 +1,8 @@
-//
-//  AppErrorManager.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import Combine
 import FirebaseAuth
 import SwiftUI
+
+// MARK: - AppError
 
 enum AppError: LocalizedError, Identifiable {
   var id: String { localizedDescription }
@@ -24,7 +19,7 @@ enum AppError: LocalizedError, Identifiable {
     case .network(let message): return message
     case .server(let message): return message
     case .firebase(let message): return message
-    case .unknown: return "Something went wrong"
+    case .unknown: return String(localized: "error.unknown")
     }
   }
 
@@ -33,25 +28,27 @@ enum AppError: LocalizedError, Identifiable {
     if let errCode = AuthErrorCode(rawValue: nsError.code) {
       switch errCode.code {
       case .invalidEmail:
-        self = .firebase(message: "Correo inválido")
+        self = .firebase(message: String(localized: "error.firebase.invalidEmail"))
       case .wrongPassword:
-        self = .firebase(message: "Credenciales inválidas")
+        self = .firebase(message: String(localized: "error.firebase.invalidCredentials"))
       case .userNotFound:
-        self = .firebase(message: "El usuario no existe")
+        self = .firebase(message: String(localized: "error.firebase.userNotFound"))
       case .emailAlreadyInUse:
-        self = .firebase(message: "El correo ya está registrado")
+        self = .firebase(message: String(localized: "error.firebase.emailInUse"))
       case .weakPassword:
-        self = .firebase(message: "La contraseña es muy débil")
+        self = .firebase(message: String(localized: "error.firebase.weakPassword"))
       case .tooManyRequests:
-        self = .firebase(message: "Demasiados intentos. Intenta más tarde")
+        self = .firebase(message: String(localized: "error.firebase.tooManyRequests"))
       default:
-        self = .firebase(message: "Ocurrió un error inesperado")
+        self = .firebase(message: String(localized: "error.firebase.unexpected"))
       }
     } else {
       self = .unknown
     }
   }
 }
+
+// MARK: - AppErrorManager
 
 @MainActor
 final class AppErrorManager: ObservableObject {

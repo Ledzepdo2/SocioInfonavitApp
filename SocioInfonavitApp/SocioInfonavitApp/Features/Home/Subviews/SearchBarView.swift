@@ -1,21 +1,20 @@
-//
-//  SearchBarView.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
 
+// MARK: - SearchBarView
+
 struct SearchBarView: View {
+  // MARK: - Properties
+
   @Binding var query: String
+
+  // MARK: - Body
 
   var body: some View {
     HStack {
       Image(systemName: "magnifyingglass")
         .foregroundColor(.app(.graySecondary))
 
-      TextField("Buscar producto...", text: $query)
+      TextField(String(localized: "home.search.placeholder"), text: $query)
         .textInputAutocapitalization(.none)
         .disableAutocorrection(true)
         .foregroundColor(.primary)

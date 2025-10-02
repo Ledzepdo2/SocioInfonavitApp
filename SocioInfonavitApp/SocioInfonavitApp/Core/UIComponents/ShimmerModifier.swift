@@ -1,11 +1,6 @@
-//
-//  ShimmerModifier.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
+
+// MARK: - ShimmerModifier
 
 struct ShimmerModifier: ViewModifier {
   @State private var phase: CGFloat = -0.5
@@ -43,6 +38,8 @@ struct ShimmerModifier: ViewModifier {
       .mask(content)
   }
 }
+
+// MARK: - View+Shimmer
 
 extension View {
   func shimmer() -> some View {

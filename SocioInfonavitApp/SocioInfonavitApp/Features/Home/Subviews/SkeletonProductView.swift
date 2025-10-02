@@ -1,13 +1,10 @@
-//
-//  SkeletonProductView.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
 
+// MARK: - SkeletonProductView
+
 struct SkeletonProductView: View {
+  // MARK: - Body
+
   var body: some View {
     VStack(alignment: .leading, spacing: 8) {
       Rectangle()
