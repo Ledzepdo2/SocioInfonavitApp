@@ -14,6 +14,8 @@ struct Product: Decodable, Identifiable {
   let description: String
   let category: Category
   let images: [String]
+    
+  var isLocked: Bool? = nil
 }
 
 // MARK: - Category
