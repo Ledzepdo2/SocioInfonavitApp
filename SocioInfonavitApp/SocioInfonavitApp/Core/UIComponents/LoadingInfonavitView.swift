@@ -1,15 +1,14 @@
-//
-//  LoadingInfonavitView.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
 
+// MARK: - LoadingInfonavitView
+
 struct LoadingInfonavitView: View {
+  // MARK: - Properties
+
   @State private var animate = false
   var color: Color = .white
+
+  // MARK: - Body
 
   var body: some View {
     Image(systemName: "house.fill")

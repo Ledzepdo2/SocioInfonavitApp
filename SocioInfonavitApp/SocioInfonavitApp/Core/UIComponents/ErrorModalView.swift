@@ -1,15 +1,14 @@
-//
-//  ErrorModalView.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
 
+// MARK: - ErrorModalView
+
 struct ErrorModalView: View {
+  // MARK: - Properties
+
   let error: AppError
   let onDismiss: () -> Void
+
+  // MARK: - Body
 
   var body: some View {
     ZStack {
@@ -34,7 +33,7 @@ struct ErrorModalView: View {
         Button(action: {
           onDismiss()
         }) {
-          Text("OK")
+          Text("common.ok")
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
             .padding()

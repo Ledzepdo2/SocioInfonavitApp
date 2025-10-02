@@ -1,14 +1,11 @@
-//
-//  LaunchScreenView.swift
-//  SocioInfonavitApp
-//
-//  Created by Jesus Perez on 01/10/25.
-//
-
 import SwiftUI
+
+// MARK: - LaunchScreenView
 
 struct LaunchScreenView: View {
   @State private var showLogin = false
+
+  // MARK: - Body
 
   var body: some View {
     GeometryReader { geo in
